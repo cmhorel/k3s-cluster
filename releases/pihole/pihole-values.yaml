@@ -1,0 +1,11 @@
+serviceDns:
+  type: LoadBalancer
+serviceDhcp:
+  type: LoadBalancer
+serviceWeb:
+  http:
+    enabled: false
+  https:
+    enabled: true
+    port: 11443
+  type: LoadBalancer
