@@ -4,6 +4,10 @@ metadata:
   name: manifests
   namespace: argocd
 spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
   project: default
   source:
     repoURL: https://github.com/cmhorel/k3s-cluster.git
