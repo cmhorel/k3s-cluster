@@ -4,7 +4,8 @@ serviceDhcp:
   type: LoadBalancer
 serviceWeb:
   http:
-    enabled: false
+    enabled: true
+    port: 11080
   https:
     enabled: true
     port: 11443
