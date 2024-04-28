@@ -3,3 +3,4 @@ server:
     type: LoadBalancer
     servicePortHttp: 1080
     servicePortHttps: 10443
+  certificateSecret: argocd-tls
