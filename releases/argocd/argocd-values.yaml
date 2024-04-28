@@ -5,3 +5,6 @@ server:
     servicePortHttps: 10443
   certificate:
     enabled: true
+    issuer:
+      kind: "ClusterIssuer"
+      name: "horel-issuer"
