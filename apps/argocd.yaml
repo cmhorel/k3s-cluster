@@ -5,8 +5,8 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    chart: argo-cd
+  sources:
+  - chart: argo-cd
     repoURL: https://argoproj.github.io/argo-helm
     targetRevision: v2.10.8
     helm:
