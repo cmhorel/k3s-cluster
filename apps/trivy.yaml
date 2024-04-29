@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: trivy
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  project: default
+  sources:
+  - chart: trivy-operator
+    repoURL: https://aquasecurity.github.io/helm-charts/
+    targetRevision: v0.7.0
+    helm:
+      releaseName: trivy-operator
+      valueFiles:
+      - $values/releases/trivy/trivy-values.yaml
+  - repoURL: https://github.com/cmhorel/k3s-cluster.git
+    ref: values
+  destination:
+    namespace: trivy
+    server: https://kubernetes.default.svc
