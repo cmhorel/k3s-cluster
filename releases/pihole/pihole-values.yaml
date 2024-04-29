@@ -18,4 +18,7 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
+admin:
+  existingSecret: "pihole-admin-password"
+  passwordKey: "password"
 
