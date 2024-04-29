@@ -92,6 +92,7 @@ vault operator init \
 
 vault secrets enable -version=2 kv
 vault kv put kv/pihole/admin password=<password> username=admin
+vault kv put kv/grafana/admin password=dsafdfa username=admin
 ```
 
 ## Secret For ESO Cluster Store

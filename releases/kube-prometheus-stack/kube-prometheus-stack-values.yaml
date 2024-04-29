@@ -7,6 +7,10 @@ prometheusOperator:
       cpu: 100m
       memory: 128Mi
 grafana:
+  admin:
+    existingSecret: grafana-admin-creds
+    userKey: username
+    passwordKey: password
   resources: 
     limits:
       cpu: 100m

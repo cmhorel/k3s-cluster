@@ -1,0 +1,21 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: grafana-auth
+  namespace: monitoring
+spec:
+  refreshInterval: "15s"
+  secretStoreRef:
+    name: vault-backend
+    kind: ClusterSecretStore
+  target:
+    name: grafana-admin-creds
+  data:
+  - secretKey: username
+    remoteRef:
+      key: kv/grafana/admin
+      property: username
+  - secretKey: password
+    remoteRef:
+      key: kv/grafana/admin
+      property: password
