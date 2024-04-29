@@ -6,7 +6,7 @@ injector:
     requests:
       cpu: 100m
       memory: 128Mi
-agent:
+server:
   resources:
     limits:
       cpu: 200m
