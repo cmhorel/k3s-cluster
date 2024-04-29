@@ -3,16 +3,16 @@ server:
     type: LoadBalancer
     servicePortHttp: 1080
     servicePortHttps: 10443
-  # certificate:
-  #   enabled: true
-  #   issuer:
-  #     kind: "ClusterIssuer"
-  #     name: "horel-issuer"
-  #   domain: "argocd"
-  #   additionalHosts: 
-  #   - "192.168.0.4"
-  #   - "192.168.0.168"
-  #   - "192.168.0.204"
+  certificate:
+    enabled: true
+    issuer:
+      kind: "ClusterIssuer"
+      name: "horel-issuer"
+    domain: "argocd"
+    additionalHosts: 
+    - "192.168.0.4"
+    - "192.168.0.168"
+    - "192.168.0.204"
 configs:
   cm:
     data:
