@@ -34,7 +34,7 @@ applicationSet:
     requests:
       cpu: 100m
       memory: 100Mi
-repo:
+repoServer:
   resources:
     limits:
       cpu: '300m'
