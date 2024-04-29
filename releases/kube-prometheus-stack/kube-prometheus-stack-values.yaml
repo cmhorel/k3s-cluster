@@ -22,6 +22,7 @@ grafana:
     enabled: true
     type: LoadBalancer
     port: 3000
+    portName: aserviceport
 prometheus:
   resources: 
     limits:
