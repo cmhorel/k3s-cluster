@@ -7,6 +7,9 @@ prometheusOperator:
       cpu: 100m
       memory: 128Mi
 grafana:
+  persistence:
+    enabled: true
+    storageClassName: local-path
   admin:
     existingSecret: grafana-admin-creds
     userKey: username
@@ -24,6 +27,8 @@ grafana:
     port: 3000
     portName: aserviceport
 prometheus:
+  persistentVolume:
+    storageClass: "local-path"
   resources: 
     limits:
       cpu: 100m
