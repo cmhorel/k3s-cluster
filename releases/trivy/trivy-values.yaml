@@ -9,3 +9,4 @@ service:
   name: trivy
   type: LoadBalancer
   port: 4954
+  clusterIP: ""
