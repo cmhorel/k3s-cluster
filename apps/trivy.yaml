@@ -4,10 +4,10 @@ metadata:
   name: trivy
   namespace: argocd
 spec:
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  syncPolicy: 
+    #automated:
+    #   prune: true
+    #   selfHeal: true
     syncOptions:
     - CreateNamespace=true
   project: default
