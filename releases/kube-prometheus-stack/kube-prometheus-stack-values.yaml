@@ -8,8 +8,11 @@ prometheusOperator:
       memory: 128Mi
 grafana:
   persistence:
+    type: pvc
     enabled: true
     storageClassName: local-path
+    inMemory:
+      enabled: false
   admin:
     existingSecret: grafana-admin-creds
     userKey: username
@@ -27,6 +30,8 @@ grafana:
     port: 3000
     portName: aserviceport
 prometheus:
+  tlsProxy:
+    enabled: true
   persistentVolume:
     storageClass: "local-path"
   resources: 
