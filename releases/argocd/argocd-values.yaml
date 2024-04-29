@@ -13,8 +13,56 @@ server:
     - "192.168.0.4"
     - "192.168.0.168"
     - "192.168.0.204"
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 125m
+      memory: 128Mi
 configs:
   cm:
     resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
       jqPathExpressions:
       - '.webhooks[]?.clientConfig.caBundle'
+    
+applicationSet:
+  resources:
+    limits:
+      cpu: '300m'
+      memory: 200Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+repo:
+  resources:
+    limits:
+      cpu: '300m'
+      memory: 200Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+dex:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+redis:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 64Mi
+    requests:
+      cpu: 100m
+      memory: 32Mi
+controller:
+  resources:
+    limits:
+      cpu: '500m'
+      memory: 300Mi
+    requests:
+      cpu: 250m
+      memory: 150Mi
