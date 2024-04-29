@@ -18,6 +18,10 @@ grafana:
     requests:
       cpu: 100m
       memory: 128Mi
+  service:
+    enabled: true
+    type: LoadBalancer
+    port: 3000
 prometheus:
   resources: 
     limits:
