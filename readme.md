@@ -96,6 +96,7 @@ ln -s ./jq-linux-amd64 jq
 vault secrets enable -version=2 kv
 vault kv put kv/pihole/admin password=<password> username=admin
 vault kv put kv/grafana/admin password=dsafdfa username=admin
+vault kv put kv/imdumb/root/token token=<bad_idea>
 vault secrets enable pki
 vault secrets tune -max-lease-ttl=87600h pki
 vault write -field=certificate pki/root/generate/internal \

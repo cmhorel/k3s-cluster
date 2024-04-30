@@ -2,7 +2,6 @@ apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: horel-ca-issuer
-  namespace: vault
 spec:
   vault:
     path: pki_int/sign/horel-dot-io
@@ -10,5 +9,4 @@ spec:
     auth:
       tokenSecretRef:
         name: vault-token
-        namespace: vault
         key: token
