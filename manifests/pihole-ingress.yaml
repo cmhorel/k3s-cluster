@@ -19,7 +19,7 @@ spec:
               service:
                 name: pihole-web
                 port:
-                  number: 11080
+                  number: 80
   tls:
     - secretName: pihole-tls
       hosts:
