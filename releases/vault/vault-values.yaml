@@ -1,3 +1,6 @@
+global:
+  serverTelemetry:
+    prometheusOperator: true
 injector:
   resources:
     limits:
@@ -17,5 +20,7 @@ server:
 serverTelemetry:
   serviceMonitor:
     enabled: true
+    selectors:
+      release: kube-prometheus-stack
     labels:
       release: kube-prometheus-stack
