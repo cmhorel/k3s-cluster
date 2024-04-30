@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sftpgo
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  project: default
+  sources:
+  - chart: sftpgo
+    repoURL:  https://charts.sagikazarmark.dev
+    targetRevision: 0.19.0
+    helm:
+      releaseName: sftpgo
+      valueFiles:
+      - $values/releases/sftpgo/sftpgo-values.yaml
+  - repoURL: https://github.com/cmhorel/k3s-cluster.git
+    ref: values
+  destination:
+    namespace: sftpgo
+    server: https://kubernetes.default.svc
