@@ -8,8 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
     cert-manager.io/cluster-issuer: horel-ca-issuer
     cert-manager.io/common-name: pihole.horel.io
-    traefik.ingress.kubernetes.io/router.middlewares: pihole-admin@kubernetescrd
-    traefik.ingress.kubernetes.io/router.middlewares: pihole-http-to-https@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: pihole-admin@kubernetescrd, pihole-http-to-https@kubernetescrd
 spec:
   rules:
     - host: pihole.horel.io
