@@ -3,13 +3,12 @@ kind: Ingress
 metadata:
   name: pihole-ingress
   namespace: pihole
-  labels:
-  - "traefik.http.middlewares.test-replacepath.replacepath.path=/admin"
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     cert-manager.io/cluster-issuer: horel-ca-issuer
     cert-manager.io/common-name: pihole.horel.io
+    traefik.ingress.kubernetes.io/router.middlewares: pihole-admin@kubernetescrd
 spec:
   rules:
     - host: pihole.horel.io
@@ -26,3 +25,12 @@ spec:
     - secretName: pihole-tls
       hosts:
         - pihole.horel.io
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: admin
+  namespace: pihole
+spec:
+  replacePath:
+    path: /admin
