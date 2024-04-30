@@ -7,11 +7,11 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     cert-manager.io/cluster-issuer: horel-ca-issuer
-    cert-manager.io/common-name: gafana.horel.io
-    traefik.ingress.kubernetes.io/router.middlewares: argocd-http-to-https@kubernetescrd
+    cert-manager.io/common-name: grafana.horel.io
+    traefik.ingress.kubernetes.io/router.middlewares: grafana-http-to-https@kubernetescrd
 spec:
   rules:
-    - host: gafana.horel.io
+    - host: grafana.horel.io
       http:
         paths:
           - path: /
@@ -22,7 +22,7 @@ spec:
                 port:
                   number: 80
   tls:
-    - secretName: gafana-server-tls
+    - secretName: grafana-server
       hosts:
         - grafana.horel.io
 ---
