@@ -5,4 +5,6 @@ echo "K3S_TOKEN"
 echo $K3S_TOKEN
 echo "K3S_URL"
 echo $K3S_URL
-curl -sfL https://get.k3s.io | sh -
+echo "INSTALL_K3S_EXEC"
+echo $INSTALL_K3S_EXEC
+curl -sfL https://get.k3s.io | sh -s - --node-ip 192.168.0.177 --flannel-iface eth1
