@@ -26,9 +26,8 @@ grafana:
       memory: 128Mi
   service:
     enabled: true
-    type: LoadBalancer
-    port: 3000
-    portName: aserviceport
+    type: ClusterIP
+    port: 80
 prometheus:
   tlsProxy:
     enabled: true
