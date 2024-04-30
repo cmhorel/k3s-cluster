@@ -6,11 +6,8 @@ replicaCount: 3
 serviceWeb:
   http:
     enabled: true
-    port: 11080
-  https:
-    enabled: true
-    port: 11443
-  type: LoadBalancer
+    port: 80
+  type: ClusterIp
 resources: 
   limits:
     cpu: 100m
