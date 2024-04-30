@@ -21,3 +21,7 @@ cainjector:
     requests:
       cpu: 100m
       memory: 128Mi
+prometheus:
+  enabled: true
+  servicemonitor:
+    enabled: true

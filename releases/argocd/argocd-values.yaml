@@ -70,3 +70,6 @@ notifications:
     requests:
       cpu: 100m
       memory: 32Mi
+metrics:
+  serviceMonitor:
+    enabled: true
