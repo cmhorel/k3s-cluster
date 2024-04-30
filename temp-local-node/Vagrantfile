@@ -1,0 +1,12 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 20000
+    v.cpus = 2
+  end
+  config.vm.box = "boxen/debian-12"
+  config.vm.network "public_network"
+  config.vm.hostname = "horel-k0s-4"
+  config.vm.provision :shell, path: "bootstrap.sh", env: {"K3S_TOKEN" => ENV['K3S_TOKEN'], "K3S_URL" => ENV['K3S_URL']}
+end
