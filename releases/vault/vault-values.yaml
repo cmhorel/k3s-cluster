@@ -14,7 +14,8 @@ server:
     requests:
       cpu: 100m
       memory: 128Mi
-serviceMonitor:
-  enabled: true
-  labels:
-    release: kube-prometheus-stack
+serverTelemetry:
+  serviceMonitor:
+    enabled: true
+    labels:
+      release: kube-prometheus-stack
