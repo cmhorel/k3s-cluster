@@ -7,7 +7,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     cert-manager.io/cluster-issuer: horel-ca-issuer
-    cert-manager.io/common-name: argocd.horel.io
+    cert-manager.io/common-name: sftpgo.horel.io
     traefik.ingress.kubernetes.io/router.middlewares: sftpgo-http-to-https@kubernetescrd
 spec:
   rules:
