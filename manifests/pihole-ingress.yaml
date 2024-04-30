@@ -32,5 +32,6 @@ metadata:
   name: admin
   namespace: pihole
 spec:
-  replacePath:
-    path: /admin
+  replacePathRegex:
+    regex: ^\/$
+    replacement: /admin
