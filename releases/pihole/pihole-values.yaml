@@ -7,7 +7,7 @@ serviceWeb:
   http:
     enabled: true
     port: 80
-  type: ClusterIp
+  type: ClusterIP
 resources: 
   limits:
     cpu: 100m
