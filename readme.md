@@ -128,6 +128,10 @@ vault write pki_int/roles/horel-dot-io \
      allow_subdomains=true \
      max_ttl="720h"
 
+vault write pki_int/config/urls \
+     issuing_certificates="$VAULT_ADDR/v1/pki_int/ca" \
+     crl_distribution_points="$VAULT_ADDR/v1/pki_int/crl"
+
 
 ```
 

@@ -4,7 +4,7 @@ metadata:
   name: horel-ca-issuer
 spec:
   vault:
-    path: pki_int/sign/horel-dot-io
+    path: pki_int/crl
     server: http://vault.vault.svc.cluster.local
     auth:
       tokenSecretRef:
