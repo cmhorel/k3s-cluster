@@ -15,4 +15,6 @@ server:
       cpu: 100m
       memory: 128Mi
 serviceMonitor:
-    enabled: true
+  enabled: true
+  labels:
+    release: kube-prometheus-stack
