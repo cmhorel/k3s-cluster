@@ -22,7 +22,7 @@ spec:
                 port:
                   number: 8080
   tls:
-    - secretName: argocd-server
+    - secretName: argocd-server-tls
       hosts:
         - argocd.horel.io
 ---
