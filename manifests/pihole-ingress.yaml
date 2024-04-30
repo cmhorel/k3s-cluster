@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: pihole-ingress
   namespace: pihole
+  labels:
+  - "traefik.http.middlewares.test-replacepath.replacepath.path=/admin"
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
