@@ -12,6 +12,7 @@ spec:
       auth:
         tokenSecretRef:
           name: "vault-token"
+          namespace: vault
           key: "token"
 # ---
 # apiVersion: v1
