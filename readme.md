@@ -89,10 +89,45 @@ vault operator init \
     -key-shares=1 \
     -key-threshold=1 
 
-
+cd /tmp
+wget https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-arm64
+chmod +x jq-linux-arm64
+ln -s ./jq-linux-amd64 jq
 vault secrets enable -version=2 kv
 vault kv put kv/pihole/admin password=<password> username=admin
 vault kv put kv/grafana/admin password=dsafdfa username=admin
+vault secrets enable pki
+vault secrets tune -max-lease-ttl=87600h pki
+vault write -field=certificate pki/root/generate/internal \
+     common_name="horel.io" \
+     issuer_name="horel-certs" \
+     ttl=87600h > horel-ca-root.crt
+vault write pki/roles/horelio-servers allow_any_name=true
+vault write pki/config/urls \
+     issuing_certificates="$VAULT_ADDR/v1/pki/ca" \
+     crl_distribution_points="$VAULT_ADDR/v1/pki/crl"
+vault secrets enable -path=pki_int pki
+vault secrets tune -max-lease-ttl=43800h pki_int
+vault write -format=json pki_int/intermediate/generate/internal \
+     common_name="horel.io Intermediate Authority" \
+     issuer_name="horel-dot-io-certificate"  \
+     | ./jq -r '.data.csr' > pki_intermediate.csr
+
+vault write -format=json pki/root/sign-intermediate \
+     issuer_ref="horel-certs" \
+     csr=@pki_intermediate.csr \
+     format=pem_bundle ttl="43800h" \
+     | ./jq -r '.data.certificate' > intermediate.cert.pem
+
+vault write pki_int/intermediate/set-signed certificate=@intermediate.cert.pem
+
+vault write pki_int/roles/horel-dot-io \
+     issuer_ref="$(vault read -field=default pki_int/config/issuers)" \
+     allowed_domains="horel.io" \
+     allow_subdomains=true \
+     max_ttl="720h"
+
+
 ```
 
 ## Secret For ESO Cluster Store
