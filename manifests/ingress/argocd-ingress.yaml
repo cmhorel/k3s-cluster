@@ -8,7 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
     cert-manager.io/cluster-issuer: horel-ca-issuer
     cert-manager.io/common-name: argocd.horel.io
-    traefik.ingress.kubernetes.io/router.middlewares: argocd-http-to-https@kubernetescrd
+    #traefik.ingress.kubernetes.io/router.middlewares: argocd-http-to-https@kubernetescrd
 spec:
   rules:
     - host: argocd.horel.io
