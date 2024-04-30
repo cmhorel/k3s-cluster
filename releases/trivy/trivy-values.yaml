@@ -10,3 +10,5 @@ service:
   #type: LoadBalancer
   port: 4954
   clusterIP: ""
+serviceMonitor:
+  enabled: true
