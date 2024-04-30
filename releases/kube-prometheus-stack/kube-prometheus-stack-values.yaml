@@ -7,6 +7,12 @@ prometheusOperator:
       cpu: 100m
       memory: 128Mi
 grafana:
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      labelValue: "1"
+      searchNamespace: "ALL"
   persistence:
     type: pvc
     enabled: true
