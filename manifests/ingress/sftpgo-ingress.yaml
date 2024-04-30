@@ -14,7 +14,7 @@ spec:
     - host: sftpgo.horel.io
       http:
         paths:
-          - path: /
+          - path: /*
             pathType: Prefix
             backend:
               service:
