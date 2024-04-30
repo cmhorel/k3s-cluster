@@ -21,4 +21,7 @@ resources:
 admin:
   existingSecret: "pihole-admin-password"
   passwordKey: "password"
+dnsmasq:
+  customDnsEntries:
+    - address=/argocd.horel.io/192.168.0.168
 
