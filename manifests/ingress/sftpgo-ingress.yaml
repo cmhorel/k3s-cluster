@@ -1,31 +1,3 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: sftpgo-ingress
-  namespace: sftpgo
-  annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
-    cert-manager.io/cluster-issuer: horel-ca-issuer
-    cert-manager.io/common-name: sftpgo.horel.io
-    traefik.ingress.kubernetes.io/router.middlewares: sftpgo-http-to-https@kubernetescrd
-spec:
-  rules:
-    - host: sftpgo.horel.io
-      http:
-        paths:
-          - path: /*
-            pathType: Prefix
-            backend:
-              service:
-                name: sftpgo
-                port:
-                  number: 80
-  tls:
-    - secretName: sftpgo-server-tls
-      hosts:
-        - sftpgo.horel.io
----
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
