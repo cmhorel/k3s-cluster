@@ -20,7 +20,7 @@ spec:
               service:
                 name: sftpgo
                 port:
-                  number: 8080
+                  number: 80
   tls:
     - secretName: sftpgo-server-tls
       hosts:
