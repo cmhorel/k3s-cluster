@@ -51,6 +51,21 @@ resolvers mynameservers
   nameserver horel-k0s-3 192.168.0.4:53
 ```
 
+
+## Host Setup Steps
+
+1. Annoying process to connect monitor & set root password
+2. enable root login or user acct & sudo
+3. Set env (k3s token/url) /etc/environment
+4. set /etc/hostname
+5. populate /etc/hosts
+6. apt update && apt upgrade
+7. Setup unattended upgrades
+7a. Disable swap & reboot!! cat /proc/swaps to find swaps, then (systemctl disable dphys-swapfile.service) raspbian or ( swapoff /dev/dm-1;  systemctl mask  "dev-*.swap") debian
+8. Setup k3s steps
+9. Install SSH Key
+
+
 ## Setup K3S
 ```
 #Add token to environment on all nodes
@@ -62,18 +77,6 @@ export K3S_URL=https://horel-k0s-2:6443
 #Run on all 3 hosts. First control plane, then once it finishes join others.
 curl -sfL https://get.k3s.io | sh -
 ```
-
-## Host Setup Steps
-
-1. Annoying process to connect monitor & set root password
-2. enable root login or user acct & sudo
-3. Set env (k3s token/url) /etc/environment
-4. set /etc/hostname
-5. populate /etc/hosts
-6. apt update && apt upgrade
-7. Setup unattended upgrades
-8. Setup k3s steps
-9. Install SSH Key
 
 ## Post Setup Bootstrap
 ```
