@@ -10,6 +10,7 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
+    - ServerSideApply=true
   project: default
   sources:
   - chart: cert-manager

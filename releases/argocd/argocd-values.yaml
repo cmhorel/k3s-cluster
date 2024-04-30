@@ -1,18 +1,13 @@
 server:
   service:
-    type: LoadBalancer
-    servicePortHttp: 1080
-    servicePortHttps: 10443
+    type: ClusterIP
+    servicePortHttp: 80
   certificate:
     enabled: true
     issuer:
       kind: "ClusterIssuer"
-      name: "horel-ca-issuer" #"horel-issuer"
+      name: "horel-ca-issuer"
     domain: "argocd.horel.io"
-    # additionalHosts: 
-    # - "192.168.0.4"
-    # - "192.168.0.168"
-    # - "192.168.0.204"
   resources:
     limits:
       cpu: 200m

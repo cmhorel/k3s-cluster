@@ -10,6 +10,8 @@ spec:
       selfHeal: true
   project: default
   source:
+    directory:
+        recurse: true
     repoURL: https://github.com/cmhorel/k3s-cluster.git
     targetRevision: HEAD
     path: manifests
