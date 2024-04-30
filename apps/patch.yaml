@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patch
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - ServerSideApply=true
+  project: default
+  source:
+    repoURL: https://github.com/cmhorel/k3s-cluster.git
+    targetRevision: HEAD
+    path: patch
+  destination:
+    server: https://kubernetes.default.svc
