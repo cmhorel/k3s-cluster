@@ -1,36 +1,36 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-ingress
-  namespace: argocd
+  name: grafana
+  namespace: monitoring
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     cert-manager.io/cluster-issuer: horel-ca-issuer
-    cert-manager.io/common-name: argocd.horel.io
+    cert-manager.io/common-name: gafana.horel.io
     traefik.ingress.kubernetes.io/router.middlewares: argocd-http-to-https@kubernetescrd
 spec:
   rules:
-    - host: argocd.horel.io
+    - host: gafana.horel.io
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: argocd-server
+                name: kube-prometheus-stack-grafana
                 port:
                   number: 80
   tls:
-    - secretName: argocd-server-tls
+    - secretName: gafana-server-tls
       hosts:
-        - argocd.horel.io
+        - grafana.horel.io
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: http-to-https
-  namespace: argocd
+  namespace: monitoring
 spec:
   redirectScheme:
     scheme: https
