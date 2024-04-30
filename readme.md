@@ -133,6 +133,9 @@ vault write pki_int/config/urls \
      crl_distribution_points="$VAULT_ADDR/v1/pki_int/crl"
 
 
+vault write pki/config/urls issuing_certificates=http://vault.vault:8200/v1/pki/ca,http://vault.vault:8200/v1/pki_int/ca?issuing_ca=horel-certs crl_distribution_points=http://vault.vault:8200/v1/pki/crl,http://vault.vault:8200/v1/pki_int/crl
+vault write pki_int/config/urls issuing_certificates="http://vault.vault:8200/v1/pki/ca","http://vault.vault:8200/v1/pki_int/ca?issuing_ca=horel-certs" crl_distribution_points="http://vault.vault:8200/v1/pki/crl","http://vault.vault:8200/v1/pki_int/crl"
+
 ```
 
 ## Secret For ESO Cluster Store
