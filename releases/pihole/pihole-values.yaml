@@ -23,5 +23,5 @@ admin:
   passwordKey: "password"
 dnsmasq:
   customDnsEntries:
-    - address=/argocd.horel.io/192.168.0.168
+    - address=/*.horel.io/192.168.0.168
 
