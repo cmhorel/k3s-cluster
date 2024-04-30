@@ -1,7 +1,7 @@
 server:
   service:
     type: ClusterIP
-    servicePortHttp: 80
+    servicePortHttp: 8080
   certificate:
     enabled: true
     issuer:
