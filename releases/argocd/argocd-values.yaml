@@ -2,12 +2,12 @@ server:
   service:
     type: ClusterIP
     servicePortHttp: 8080
-  certificate:
-    enabled: true
-    issuer:
-      kind: "ClusterIssuer"
-      name: "horel-ca-issuer"
-    domain: "argocd.horel.io"
+  # certificate:
+  #   enabled: true
+  #   issuer:
+  #     kind: "ClusterIssuer"
+  #     name: "horel-ca-issuer"
+  #   domain: "argocd.horel.io"
   resources:
     limits:
       cpu: 200m
