@@ -14,6 +14,6 @@ spec:
   source:
     repoURL: https://github.com/cmhorel/k3s-cluster.git
     targetRevision: HEAD
-    path: patch
+    path: taints
   destination:
     server: https://kubernetes.default.svc
