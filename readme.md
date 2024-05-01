@@ -155,8 +155,8 @@ data:
 ## Configure Registry Mirror On Host
 ```
 echo "mirrors:
-  <REGISTRY>:
+  horel-k0s-3:
     endpoint:
-      - https://<REGISTRY>/v2" > /tmp/registries.yaml
+      - https://horel-k0s-3/v2" > /tmp/registries.yaml
 ```
 
