@@ -1,0 +1,23 @@
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations: 
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: horel-ca-issuer
+    cert-manager.io/common-name: files.horel.io
+    traefik.ingress.kubernetes.io/router.middlewares: filebrowser-http-to-https@kubernetescrd
+  hosts:
+    - host: files.horel.io
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+  - secretName: filebrowser-server-tls
+    hosts:
+      - files.horel.io
+nodeSelector:
+  horel.io.filebrowser: true
+config:
+  auth:
+    method: noauth
