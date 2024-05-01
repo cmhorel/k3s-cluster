@@ -75,10 +75,17 @@ export K3S_URL=https://horel-k0s-2:6443
 #(add to /etc/environment)
 
 #Run on all 3 hosts. First control plane, then once it finishes join others.
-curl -sfL https://get.k3s.io | sh -
 
-except horel-k0s-3 - which we want to be a pull cache:
-curl -sfL https://get.k3s.io | sh -s - --embedded-registry
+curl -sfL https://get.k3s.io | sh -s - 
+
+
+unset K3S_URL
+curl -sfL https://get.k3s.io |  sh -s - server \
+    --cluster-init --embedded-registry
+
+curl -sfL https://get.k3s.io |  sh -s - server \
+ --embedded-registry \
+     --server https://horel-k0s-2:6443
 ```
 
 ## Post Setup Bootstrap

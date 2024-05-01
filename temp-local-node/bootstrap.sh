@@ -4,16 +4,21 @@ grep 'horel-k0s-3' /etc/hosts || echo '192.168.0.4 horel-k0s-3' >> /etc/hosts
 grep 'K3S_TOKEN' /etc/environment || echo "K3S_TOKEN=$K3S_TOKEN" >> /etc/environment
 echo "K3S_TOKEN"
 echo $K3S_TOKEN
-grep 'K3S_URL' /etc/environment || echo "K3S_URL=$K3S_URL" >> /etc/environment
-echo "K3S_URL"
-echo $K3S_URL
+# grep 'K3S_URL' /etc/environment || echo "K3S_URL=$K3S_URL" >> /etc/environment
+# echo "K3S_URL"
+# echo $K3S_URL
 echo "INSTALL_K3S_EXEC"
 echo $INSTALL_K3S_EXEC
 swapoff /dev/sda2
 #systemctl mask "dev-\*.swap"
 mkdir -p  /etc/rancher/k3s/
-echo 'mirrors:
-  horel-k0s-3:
-    endpoint:
-      - "https://horel-k0s-3:30000"' > /etc/rancher/k3s/registries.yaml
+#Doesn't seem to even try?
+# echo 'mirrors:
+#   horel-k0s-3:
+#     endpoint:
+#       - "https://horel-k0s-3:30000"' > /etc/rancher/k3s/registries.yaml
 curl -sfL https://get.k3s.io | sh -s - --node-ip 192.168.0.177 --flannel-iface eth1
+
+# unset K3S_URL
+# curl -sfL https://get.k3s.io |  sh -s - server \
+#  --embedded-registry # --server https://horel-k0s-2:6443
