@@ -154,9 +154,10 @@ data:
 
 ## Configure Registry Mirror On Host
 ```
+mkdir -p  /etc/rancher/k3s/
 echo "mirrors:
   horel-k0s-3:
     endpoint:
-      - https://horel-k0s-3/v2" > /tmp/registries.yaml
+      - https://horel-k0s-3/v2" > /etc/rancher/k3s/registries.yaml
 ```
 
