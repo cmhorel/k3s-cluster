@@ -20,3 +20,8 @@ spec:
   - name: registry-mirror
     persistentVolumeClaim:  
       claimName: registry-mirror
+  tolerations:
+  - effect: NoSchedule
+    key: k3s-registry
+    value: "true"
+    operator: "Equal"
