@@ -12,7 +12,11 @@ spec:
     ports:
     - containerPort: 5000
     volumeMounts:
-          - mountPath: "/var/lib/registry"
-            name: registry-mirror
+    - mountPath: "/var/lib/registry"
+      name: registry-mirror
   nodeSelector:
     horel.io.registry: "1"
+  volumes:
+  - name: registry-mirror
+    persistentVolumeClaim:  
+      claimName: registry-mirror
