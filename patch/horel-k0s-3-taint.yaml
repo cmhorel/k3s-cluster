@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Node
+metadata:
+  name: horel-k0s-3
+  labels:
+    horel.io.registry: "true"
+spec:
+  taints:
+  - effect: NoSchedule
+    key: k3s-registry
+    value: "true"

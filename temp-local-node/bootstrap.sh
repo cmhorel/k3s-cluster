@@ -10,5 +10,5 @@ echo $K3S_URL
 echo "INSTALL_K3S_EXEC"
 echo $INSTALL_K3S_EXEC
 swapoff /dev/sda2
-systemctl mask "dev-\*.swap"
+#systemctl mask "dev-\*.swap"
 curl -sfL https://get.k3s.io | sh -s - --node-ip 192.168.0.177 --flannel-iface eth1
