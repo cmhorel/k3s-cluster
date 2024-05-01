@@ -103,6 +103,7 @@ vault operator init \
     -key-threshold=1 
 
 cd /tmp
+wget https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64
 wget https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-arm64
 chmod +x jq-linux-arm64
 ln -s ./jq-linux-amd64 jq
