@@ -3,4 +3,4 @@ kind: Node
 metadata:
   name: horel-k0s-4
   labels:
-    horel.io.filebrowser: true
+    horel.io.filebrowser: "true"
