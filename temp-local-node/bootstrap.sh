@@ -12,8 +12,8 @@ echo $INSTALL_K3S_EXEC
 swapoff /dev/sda2
 #systemctl mask "dev-\*.swap"
 mkdir -p  /etc/rancher/k3s/
-echo "mirrors:
+echo 'mirrors:
   horel-k0s-3:
     endpoint:
-      - https://horel-k0s-3/v2" > /etc/rancher/k3s/registries.yaml
+      - "https://horel-k0s-3:30000"' > /etc/rancher/k3s/registries.yaml
 curl -sfL https://get.k3s.io | sh -s - --node-ip 192.168.0.177 --flannel-iface eth1

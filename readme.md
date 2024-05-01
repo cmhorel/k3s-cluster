@@ -76,6 +76,9 @@ export K3S_URL=https://horel-k0s-2:6443
 
 #Run on all 3 hosts. First control plane, then once it finishes join others.
 curl -sfL https://get.k3s.io | sh -
+
+except horel-k0s-3 - which we want to be a pull cache:
+curl -sfL https://get.k3s.io | sh -s - --embedded-registry
 ```
 
 ## Post Setup Bootstrap
@@ -155,9 +158,9 @@ data:
 ## Configure Registry Mirror On Host
 ```
 mkdir -p  /etc/rancher/k3s/
-echo "mirrors:
+echo 'mirrors:
   horel-k0s-3:
     endpoint:
-      - https://horel-k0s-3/v2" > /etc/rancher/k3s/registries.yaml
+      - "https://horel-k0s-3/v2"' > /etc/rancher/k3s/registries.yaml
 ```
 
