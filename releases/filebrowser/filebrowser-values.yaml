@@ -17,7 +17,7 @@ ingress:
     hosts:
       - files.horel.io
 nodeSelector:
-  horel.io.filebrowser: true
+  horel.io.filebrowser: "true"
 config:
   auth:
     method: noauth
