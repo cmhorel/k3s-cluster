@@ -6,6 +6,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.cpus = 4
   end
   config.vm.box = "boxen/debian-12"
+  config.disksize.size = '20GB'
   config.vm.network "public_network", bridge: "Wireless LAN adapter Wi-Fi", :mac => "5CA1AB1E0001"
   config.vm.hostname = "horel-k0s-4"
   config.vm.provision :shell, path: "bootstrap.sh", env: {"K3S_TOKEN" => ENV['K3S_TOKEN'], "K3S_URL" => ENV['K3S_URL'], "INSTALL_K3S_EXEC" => ENV['INSTALL_K3S_EXEC']}
