@@ -3,7 +3,7 @@ kind: Node
 metadata:
   name: horel-k0s-3
   labels:
-    horel.io.registry: "true"
+    horel.io.registry: "1"
 spec:
   taints:
   - effect: NoSchedule

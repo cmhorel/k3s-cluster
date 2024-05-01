@@ -152,4 +152,11 @@ data:
   token: Blah=
 ```
 
+## Configure Registry Mirror On Host
+```
+echo "mirrors:
+  <REGISTRY>:
+    endpoint:
+      - https://<REGISTRY>/v2" > /tmp/registries.yaml
+```
 

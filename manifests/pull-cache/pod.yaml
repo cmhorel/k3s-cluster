@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: registry-mirror
+  namespace: registry-mirror
+  labels:
+    horel.io.registry: "1"
+spec:
+  containers:
+  - name: registry
+    image: registry:latest
+    ports:
+    - containerPort: 5000
+    volumeMounts:
+          - mountPath: "/var/lib/registry"
+            name: registry-mirror
+  nodeSelector:
+    horel.io.registry: "1"
