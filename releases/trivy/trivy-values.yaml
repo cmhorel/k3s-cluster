@@ -3,7 +3,7 @@ resources:
     cpu: 200m
     memory: 128Mi
   limits:
-    cpu: 300m
+    cpu: 800m
     memory: 400Mi
 service:
   name: trivy
