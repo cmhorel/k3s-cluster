@@ -3,7 +3,6 @@ kind: PrometheusRule
 metadata:
   labels:
     app: kube-prometheus-stack
-    release: prometheus
   name: traefik 
   namespace: kube-system
 spec:
