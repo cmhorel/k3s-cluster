@@ -15,7 +15,7 @@ serviceMonitor:
   labels:
     release: kube-prometheus-stack
 nodeCollector:
-  scanJobTolerations:
+  tolerations:
   - effect: NoSchedule
     key:  node-role.kubernetes.io/master 
     operator: "Exists"
