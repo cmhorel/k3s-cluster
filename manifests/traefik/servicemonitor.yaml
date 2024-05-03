@@ -2,7 +2,6 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app: traefik
     release: kube-prometheus-stack
   name: traefik
   namespace: kube-system
