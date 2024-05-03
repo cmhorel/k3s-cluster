@@ -36,6 +36,7 @@ grafana:
     port: 80
 prometheus:
   prometheusSpec:
+    scrapeInterval: 10s
     storageSpec: 
       volumeClaimTemplate:
         spec:
@@ -47,7 +48,7 @@ prometheus:
     resources: 
       limits:
         cpu: 500m
-        memory: 1000Mi
+        memory: 500Mi
       requests:
         cpu: 100m
         memory: 128Mi
