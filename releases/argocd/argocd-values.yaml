@@ -19,6 +19,32 @@ server:
 configs:
   rbac:
     policy.csv: |
+      p, chorel, applications, create, */*, allow
+      p, chorel, applications, update, */*, allow
+      p, chorel, applications, delete, */*, allow
+      p, chorel, applications, sync, */*, allow
+      p, chorel, applications, override, */*, allow
+      p, chorel, applications, action/*, */*, allow
+      p, chorel, applicationsets, get, */*, allow
+      p, chorel, applicationsets, create, */*, allow
+      p, chorel, applicationsets, update, */*, allow
+      p, chorel, applicationsets, delete, */*, allow
+      p, chorel, certificates, create, *, allow
+      p, chorel, certificates, update, *, allow
+      p, chorel, certificates, delete, *, allow
+      p, chorel, clusters, create, *, allow
+      p, chorel, clusters, update, *, allow
+      p, chorel, clusters, delete, *, allow
+      p, chorel, repositories, create, *, allow
+      p, chorel, repositories, update, *, allow
+      p, chorel, repositories, delete, *, allow
+      p, chorel, projects, create, *, allow
+      p, chorel, projects, update, *, allow
+      p, chorel, projects, delete, *, allow
+      p, chorel, accounts, update, *, allow
+      p, chorel, gpgkeys, create, *, allow
+      p, chorel, gpgkeys, delete, *, allow
+      p, chorel, exec, create, */*, allow
       p, chorel, *, *, *, allow
     policy.default: "role:readonly"
   cm:
