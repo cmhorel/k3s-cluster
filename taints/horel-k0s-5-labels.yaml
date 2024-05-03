@@ -4,3 +4,4 @@ metadata:
   name: horel-k0s-5
   labels:
     horel.io.filebrowser: "true"
+    horel.io.prometheus: "1"
