@@ -8,6 +8,8 @@ metadata:
 spec:
   endpoints:
   - port: metrics
+    honorLabels: true
+    scheme: http
   namespaceSelector:
     matchNames:
     - kube-system
