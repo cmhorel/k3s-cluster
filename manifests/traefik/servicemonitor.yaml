@@ -3,7 +3,7 @@ kind: ServiceMonitor
 metadata:
   labels:
     app: traefik
-    release: prometheus
+    release: kube-prometheus-stack
   name: traefik
 spec:
   endpoints:
