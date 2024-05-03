@@ -4,7 +4,7 @@ metadata:
   name: coredns-custom # this is the name of the configmap you can overwrite with your changes
   namespace: kube-system
 data:
-    custom.server: | 
+  custom.server: | 
     horel.io:53 {
-       forward . 192.168.0.168
+        forward . 192.168.0.168
     }
