@@ -180,4 +180,3 @@ echo 'mirrors:
     endpoint:
       - "https://horel-k0s-3/v2"' > /etc/rancher/k3s/registries.yaml
 ```
-
