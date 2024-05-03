@@ -1,0 +1,38 @@
+config:
+  enablePasswordDB: true
+  oauth2:
+    passwordConnector: local
+  staticClients:
+  - id: argocd
+    secretEnv: 'CLIENT_SECRET_RUST_FORUM'
+    name: 'argocd'
+    redirectURIs:
+      - 'https://example.com/oidc/callback'
+  staticPasswords:
+  - email: "charles.horel@gmail.com"
+    # bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
+    secretEnv: "populate_later"
+    #hash: "dlsfkj"
+    username: "chorel"
+    userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations: 
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: horel-ca-issuer
+    cert-manager.io/common-name: dex.horel.io
+    traefik.ingress.kubernetes.io/router.middlewares: dex-http-to-https@kubernetescrd
+  hosts:
+    - host: dex.horel.io
+      paths:
+        - path: /
+          #pathType: ImplementationSpecific
+  tls:
+  - secretName: dex-server-tls
+    hosts:
+      - dex.horel.io
+# -- Additional environment variables mounted from [secrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables) or [config maps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables).
+# See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#environment-variables) for details.
+envFrom: []
