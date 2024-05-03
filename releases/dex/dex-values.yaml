@@ -4,8 +4,8 @@ config:
     passwordConnector: local
   staticClients:
   - id: argocd
-    secretEnv: 'CLIENTSECRET'
-    name: 'argocd'
+    secretEnv: CLIENTSECRET
+    name: argocd
     redirectURIs:
       - 'https://argocd.horel.io/auth/callback'
   staticPasswords:
