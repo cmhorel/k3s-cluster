@@ -11,7 +11,7 @@ config:
   staticPasswords:
   - email: "charles.horel@gmail.com"
     # bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
-    hash: '$CHORELHASH'
+    hashEnv: 'CHORELHASH'
     username: "chorel"
     userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
 ingress:
