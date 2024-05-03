@@ -10,6 +10,11 @@ spec:
     kind: ClusterSecretStore
   target:
     name: argocd-oauth-secret
+    creationPolicy: 'Merge'
+    template:
+      metadata:
+        annotations:
+          argocd.argoproj.io/compare-options: IgnoreExtraneous
   data:
   - secretKey: oidc.auth0.clientSecret
     remoteRef:
