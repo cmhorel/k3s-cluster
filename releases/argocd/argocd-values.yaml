@@ -17,6 +17,9 @@ server:
       cpu: 125m
       memory: 128Mi
 configs:
+  rbac:
+    policy.csv |
+      u, chorel, role:admin
   cm:
     resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
       jqPathExpressions:
