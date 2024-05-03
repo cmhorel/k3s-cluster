@@ -4,6 +4,8 @@ serviceDhcp:
   type: LoadBalancer
 replicaCount: 2
 serviceWeb:
+  annotations:
+    traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
   http:
     enabled: true
     port: 80
