@@ -32,7 +32,7 @@ configs:
       - openid
       - profile
       - email
-      rootCA |
+      rootCA: |
         -----BEGIN CERTIFICATE-----
         MIIDLDCCAhSgAwIBAgIUPKHRImWGocfKQnPlwDcGE9+vR6MwDQYJKoZIhvcNAQEL
         BQAwEzERMA8GA1UEAxMIaG9yZWwuaW8wHhcNMjQwNTAzMDIyNTAwWhcNMzQwNTAx
