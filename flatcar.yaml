@@ -1,0 +1,7 @@
+variant: flatcar
+version: 1.0.0
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+qVMs43LNVeiFIovSpOjs/5j78pMweWdfRnOvpNAiGy5f/A+AzwN537k8H8Els+rd4WZtehOFFPP0a+gyo3bpI0d3B2IgCclDCKjTEv8TlCq/8yBpe6m7Z7YMzx/Uriu6tajG/MlblAErvZnPPxOujVfme+PFEmTgLTZ/sfoUSrtI8k1Vs16hn8tww1rjgmdulpzR0pUziRdaGqNmdnwN30GzEVCbwEwrd3TpKOBsJ3lvJYTj29ieD23o6QyNm3OOw1Q2RgAO8pzayiFDtYiGrExxfhdvxPlfWcaBJdpqn7NH4UZ4j4hKXxWcHSWCYp+E4HVn7Wfd3amt2UBvkCqN+UASgyYKPQ2DTaTsFWePWI082O9UJlPX6XMNzxwHFVlRpxxZHkeV1rQyGqMgin/zv+OXLyGHriQN03tpxP0Ok9aBAVRcK67GzDQwYENhdOT40/rv5GVqOfYJ8Lc0OpNRuUOCWoEok9L+8H4jLp2HjxdUXBDdZA7i8vksyDvogNc= charl@LAPTOP-CKGUP8HK

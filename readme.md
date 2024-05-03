@@ -11,6 +11,8 @@ horel-k0s-3 - rpi3b 192.168.0.4
 192.168.0.4     horel-k0s-3
 192.168.0.204   horel-k0s-1
 192.168.0.168   horel-k0s-2
+192.168.0.177   horel-k0s-4
+192.168.0.121   horel-k0s-5
 ```
 
 ## Nginx Config (not using this any longer, using a single control plane node)
@@ -79,13 +81,22 @@ export K3S_URL=https://horel-k0s-2:6443
 curl -sfL https://get.k3s.io | sh -s - 
 
 
-unset K3S_URL
+#Run on horel-k0s-2, the first master
 curl -sfL https://get.k3s.io |  sh -s - server \
     --cluster-init --embedded-registry
 
+#Run on subsequent masters
 curl -sfL https://get.k3s.io |  sh -s - server \
  --embedded-registry \
      --server https://horel-k0s-2:6443
+
+#To init the vagrant node, navigate to temp-local-node and run
+vagrant up --provision
+#note vagrant and vagrant persistent volumes plugins are required
+
+#horel-k0s-3 is a bastard node with 1GB mem. It gets to be an agent, and will probably
+#just crash a lot
+
 ```
 
 ## Post Setup Bootstrap
