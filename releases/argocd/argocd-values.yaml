@@ -25,7 +25,7 @@ configs:
     url: https://argocd.horel.io
     oidc.config: |
       name: Auth0
-      issuer: http://dex.dex.svc.cluster.local
+      issuer: https://dex.horel.io
       clientID: argocd
       clientSecret: $argocd-oauth-secret:oidc.auth0.clientSecret
       requestedScopes:
