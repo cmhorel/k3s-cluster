@@ -21,6 +21,19 @@ configs:
     resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
       jqPathExpressions:
       - '.webhooks[]?.clientConfig.caBundle'
+    application.instanceLabelKey: argocd.argoproj.io/instance
+    url: https://your.argoingress.address
+    oidc.config: |
+      name: Auth0
+      issuer: https://<yourtenant>.<eu|us>.auth0.com/
+      clientID: <theClientId>
+      clientSecret: <theClientSecret>
+      requestedScopes:
+      - openid
+      - profile
+      - email
+      # not strictly necessary - but good practice:
+      - 'http://your.domain/groups'
   params:
     server.insecure: true
 applicationSet:

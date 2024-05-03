@@ -29,6 +29,7 @@ ingress:
       paths:
         - path: /
           #pathType: ImplementationSpecific
+          pathType: Prefix
   tls:
   - secretName: dex-server-tls
     hosts:
