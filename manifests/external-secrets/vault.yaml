@@ -14,11 +14,11 @@ spec:
           name: "vault-token"
           namespace: vault
           key: "token"
-# ---
-# apiVersion: v1
-# kind: Secret
-# metadata:
-#   name: vault-token
-#   namespace: vault
-# data:
-#   token: 
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: vault-token
+  namespace: cert-manager
+data:
+  token:
