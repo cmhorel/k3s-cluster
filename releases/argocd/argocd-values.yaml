@@ -26,7 +26,7 @@ configs:
     oidc.config: |
       name: Auth0
       issuer: http://dex.dex.svc.cluster.local
-      clientID: <theClientId>
+      clientID: argocd
       clientSecret: $argocd-oauth-secret:oidc.auth0.clientSecret
       requestedScopes:
       - openid
