@@ -16,6 +16,6 @@ serviceMonitor:
     release: kube-prometheus-stack
 nodeCollector:
   tolerations:
-  - effect: NoSchedule
-    key:  node-role.kubernetes.io/master 
+  - effect: "NoSchedule"
+    key:  "node-role.kubernetes.io/master" 
     operator: "Exists"
