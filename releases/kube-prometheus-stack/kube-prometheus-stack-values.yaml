@@ -47,7 +47,7 @@ prometheus:
               storage: 50Gi
     resources: 
       limits:
-        cpu: 500m
+        cpu: 1500m
         memory: 1200Mi
       requests:
         cpu: 100m
