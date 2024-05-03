@@ -1,6 +1,7 @@
 config:
   enablePasswordDB: true
   oauth2:
+    skipApprovalScreen: true
     passwordConnector: local
   staticClients:
   - id: argocd
