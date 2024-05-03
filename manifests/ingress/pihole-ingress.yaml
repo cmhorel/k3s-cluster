@@ -6,7 +6,6 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
     cert-manager.io/cluster-issuer: horel-ca-issuer
     cert-manager.io/common-name: pihole.horel.io
     traefik.ingress.kubernetes.io/router.middlewares:  pihole-http-to-https@kubernetescrd,pihole-admin@kubernetescrd,
