@@ -14,6 +14,9 @@ config:
     hashFromEnv: 'CHORELHASH'
     username: "chorel"
     userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
+  issuer: https://dex.horel.io
+  storage: 
+    type: memory
 ingress:
   enabled: true
   className: "traefik"
