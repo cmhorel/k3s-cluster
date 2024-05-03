@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-secrets
+  namespace: dex
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  project: default
+  sources:
+  - chart: dex
+    repoURL: https://charts.dexidp.io
+    targetRevision: 0.17.1
+
+    helm:
+      releaseName: dex
+      valueFiles:
+      - $values/releases/dex/dex-values.yaml
+  - repoURL: https://github.com/cmhorel/k3s-cluster.git
+    ref: values
+  destination:
+    namespace: dex
+    server: https://kubernetes.default.svc
+  
