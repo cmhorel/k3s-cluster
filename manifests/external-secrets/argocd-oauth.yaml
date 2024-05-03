@@ -9,7 +9,7 @@ spec:
     name: vault-backend
     kind: ClusterSecretStore
   target:
-    name: argocd-oauth-secret
+    name: argocd-secret
     creationPolicy: 'Merge'
     template:
       metadata:
