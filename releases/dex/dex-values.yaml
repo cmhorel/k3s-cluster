@@ -7,7 +7,7 @@ config:
     secretEnv: 'CLIENTSECRET'
     name: 'argocd'
     redirectURIs:
-      - 'https://argocd.horel.io/oidc/callback'
+      - 'https://argocd.horel.io/auth/callback'
   staticPasswords:
   - email: "charles.horel@gmail.com"
     # bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
