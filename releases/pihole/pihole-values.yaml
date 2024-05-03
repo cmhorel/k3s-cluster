@@ -2,7 +2,7 @@ serviceDns:
   type: LoadBalancer
 serviceDhcp:
   type: LoadBalancer
-replicaCount: 3
+replicaCount: 1
 serviceWeb:
   http:
     enabled: true
