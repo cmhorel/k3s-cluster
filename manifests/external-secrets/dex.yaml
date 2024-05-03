@@ -1,0 +1,22 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: dex
+  namespace: dex
+spec:
+  refreshInterval: "15s"
+  secretStoreRef:
+    name: vault-backend
+    kind: ClusterSecretStore
+  target:
+    name: dex-secrets
+  data:
+  - secretKey: CLIENTSECRET
+    remoteRef:
+      key: kv/dex/clients/argocd
+      property: clientSecret
+  - secretKey: CHORELHASH
+    remoteRef:
+      key: kv/dex/chorel
+      property: password
+  

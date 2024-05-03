@@ -4,15 +4,14 @@ config:
     passwordConnector: local
   staticClients:
   - id: argocd
-    secretEnv: 'CLIENT_SECRET_RUST_FORUM'
+    secretEnv: 'CLIENTSECRET'
     name: 'argocd'
     redirectURIs:
       - 'https://example.com/oidc/callback'
   staticPasswords:
   - email: "charles.horel@gmail.com"
     # bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
-    secretEnv: "populate_later"
-    #hash: "dlsfkj"
+    hash: "$CHORELHASH"
     username: "chorel"
     userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
 ingress:
@@ -37,3 +36,5 @@ ingress:
 # -- Additional environment variables mounted from [secrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables) or [config maps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables).
 # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#environment-variables) for details.
 envFrom: []
+- secretRef:
+    name: dex-secrets
