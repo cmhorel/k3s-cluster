@@ -5,6 +5,7 @@ metadata:
     app: traefik
     release: kube-prometheus-stack
   name: traefik
+  namespace: kube-system
 spec:
   endpoints:
   - port: metrics

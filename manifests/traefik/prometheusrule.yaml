@@ -5,6 +5,7 @@ metadata:
     app: kube-prometheus-stack
     release: prometheus
   name: traefik 
+  namespace: kube-system
 spec:
   groups:
   - name: traefik
