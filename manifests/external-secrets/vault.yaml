@@ -21,4 +21,4 @@ spec:
 #   name: vault-token
 #   namespace: cert-manager
 # data:
-#   token:
+#   token: aHZzLndWaTc1WWtPZ0dsc2IzM0lySUVHelJDZg==
