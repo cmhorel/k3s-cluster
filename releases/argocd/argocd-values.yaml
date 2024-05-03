@@ -19,7 +19,7 @@ server:
 configs:
   rbac:
     policy.csv: |
-      u, chorel, role:admin
+      p, chorel, role:admin
     policy.default: "role:readonly"
   cm:
     resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
