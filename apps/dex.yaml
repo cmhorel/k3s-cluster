@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: external-secrets
-  namespace: dex
+  name: dex
+  namespace: argocd
 spec:
   syncPolicy:
     automated:
