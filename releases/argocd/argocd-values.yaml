@@ -69,6 +69,7 @@ repoServer:
       selector: 
         release: kube-prometheus-stack
 dex:
+  enabled: false
   resources:
     limits:
       cpu: 200m
