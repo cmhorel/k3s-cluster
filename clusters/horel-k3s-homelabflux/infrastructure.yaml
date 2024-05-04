@@ -29,3 +29,19 @@ spec:
   path: ./helm-releases/dex
   wait: true
   prune: false
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: external-secrets
+  namespace: flux-system
+spec:
+  interval: 1h
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./helm-releases/external-secrets
+  wait: true
+  prune: false
