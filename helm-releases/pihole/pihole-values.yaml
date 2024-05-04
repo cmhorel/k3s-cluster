@@ -27,4 +27,5 @@ dnsmasq:
     - address=/horel-k0s-2/192.168.0.168
     - address=/horel-k0s-3/192.168.0.4
     - address=/horel-k0s-4/192.168.0.177
-
+adlists:
+  - https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.txt

@@ -99,13 +99,25 @@ vagrant up --provision
 
 ```
 
-## Post Setup Bootstrap
+## Post Setup Bootstrap - IF YA LIKE ARGO
 ```
 helm upgrade --install argocd argo/argo-cd -n argocd --create-namespace -f .\releases\argocd\argocd-values.yaml
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 #login to argo and configure a repo. Need URL, github username & PAT.
 kubectl apply -f .\bootstrap\app-of-apps.yaml
 ```
+
+## Post Setup Bootstrap - For the FLUX LOVERS
+```
+flux bootstrap github \
+     --token--auth \
+     --hostname=github.com \
+     --repository=cmhorel/k3s-cluster \ 
+     --branch=main \
+     --path = clusters/horel-k3s-homelab
+```
+
+
 
 ## Bootstrap Vault
 ```
