@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: minecraft
+  namespace: minecraft
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: minecraft
+      version: "4.17.0"
+      sourceRef:
+        kind: HelmRepository
+        name: minecraft
+        namespace: minecraft
+      interval: 12h
+  values:
+    minecraftServer:
+      # This must be overridden, since we can't accept this for the user.
+      eula: "TRUE"
+      # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
+
+      version: "LATEST"
+      # This can be one of "VANILLA", "FORGE", "SPIGOT", "BUKKIT", "PAPER", "FTBA", "SPONGEVANILLA", "CURSEFORGE"
+
+      type: "VANILLA"
+    persistence:
+      labels: {}
+      annotations: {}
+      storageClass: "local-path"
+      dataDir:
+        # Set this to false if you don't care to persist state between restarts.
+        enabled: true
+        Size: 10Gi
+        accessModes:
+      - ReadWriteOnce
+    nodeSelector:
+      horel.io.minecraft: "true"

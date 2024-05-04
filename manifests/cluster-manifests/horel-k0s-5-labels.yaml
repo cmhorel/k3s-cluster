@@ -8,3 +8,4 @@ metadata:
   labels:
     horel.io.filebrowser: "true"
     horel.io.prometheus: "1"
+    horel.io.minecraft: "true"
