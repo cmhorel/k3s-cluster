@@ -15,7 +15,7 @@ spec:
         namespace: vault
       interval: 12h
   values:
-    global:
+    #global:
     # serverTelemetry:
     #   prometheusOperator: true
     injector:
