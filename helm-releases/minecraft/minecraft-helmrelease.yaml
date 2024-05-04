@@ -33,6 +33,6 @@ spec:
         enabled: true
         Size: 10Gi
         accessModes:
-      - ReadWriteOnce
+          - ReadWriteOnce
     nodeSelector:
       horel.io.minecraft: "true"
