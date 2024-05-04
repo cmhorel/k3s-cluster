@@ -45,3 +45,19 @@ spec:
   path: ./helm-releases/external-secrets
   wait: true
   prune: false
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: filebrowser
+  namespace: flux-system
+spec:
+  interval: 1h
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./helm-releases/filebrowser
+  wait: true
+  prune: false
