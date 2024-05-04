@@ -15,3 +15,21 @@ spec:
   prune: false
   install:
     createNamespace: true
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: dex
+  namespace: flux-system
+spec:
+  interval: 1h
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./helm-releases/dex
+  wait: true
+  prune: false
+  install:
+    createNamespace: true

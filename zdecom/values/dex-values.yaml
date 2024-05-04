@@ -1,0 +1,49 @@
+config:
+  enablePasswordDB: true
+  oauth2:
+    skipApprovalScreen: true
+    passwordConnector: local
+  staticClients:
+    - id: argocd
+      secretEnv: CLIENTSECRET
+      name: argocd
+      redirectURIs:
+        - 'https://argocd.horel.io/auth/callback'
+  staticPasswords:
+    - email: "charles.horel@gmail.com"
+      hashFromEnv: 'CHORELHASH'
+      # bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
+
+      username: "chorel"
+      userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
+  issuer: https://dex.horel.io
+  storage:
+    type: memory
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: horel-ca-issuer
+    cert-manager.io/common-name: dex.horel.io
+    traefik.ingress.kubernetes.io/router.middlewares: dex-http-to-https@kubernetescrd
+  hosts:
+    - host: dex.horel.io
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: dex-server-tls
+      hosts:
+        - dex.horel.io
+envFrom:
+  - secretRef:
+      name: dex-secrets
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
