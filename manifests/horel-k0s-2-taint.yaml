@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Node
+metadata:
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: disabled
+    kustomize.toolkit.fluxcd.io/ssa: merge
+  name: horel-k0s-2
+spec:
+  taints:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+      value: "true"

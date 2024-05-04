@@ -1,10 +1,13 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: disabled
+    kustomize.toolkit.fluxcd.io/ssa: merge
   name: coredns-custom # this is the name of the configmap you can overwrite with your changes
   namespace: kube-system
 data:
-  custom.server: | 
+  custom.server: |-
     horel.io:53 {
         forward . 192.168.0.168
     }
