@@ -4,3 +4,5 @@ resources:
   - pihole-namespace.yaml
   - pihole-helmrepository.yaml
   - pihole-helmrelease.yaml
+  - pihole-auth.yaml
+  - pihole-ingress.yaml

@@ -4,3 +4,4 @@ resources:
   - filebrowser-namespace.yaml
   - filebrowser-helmrepository.yaml
   - filebrowser-helmrelease.yaml
+  - filebrowser-middleware.yaml

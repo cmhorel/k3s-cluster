@@ -4,3 +4,5 @@ resources:
   - cert-manager-namespace.yaml
   - cert-manager-helmrepository.yaml
   - cert-manager-helmrelease.yaml
+  - cert-manager-vault-auth.yaml
+  - horel-issuer.yaml
