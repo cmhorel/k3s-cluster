@@ -14,6 +14,8 @@ spec:
         name: dex
         namespace: dex
       interval: 12h
+  install:
+    createNamespace: true
   values:
     config:
       enablePasswordDB: true

@@ -13,8 +13,6 @@ spec:
   path: ./helm-releases/cert-manager
   wait: true
   prune: false
-  install:
-    createNamespace: true
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -31,5 +29,3 @@ spec:
   path: ./helm-releases/dex
   wait: true
   prune: false
-  install:
-    createNamespace: true
