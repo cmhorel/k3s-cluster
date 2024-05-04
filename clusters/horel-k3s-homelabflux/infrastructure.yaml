@@ -61,3 +61,19 @@ spec:
   path: ./helm-releases/filebrowser
   wait: true
   prune: false
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: pihole
+  namespace: flux-system
+spec:
+  interval: 1h
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./helm-releases/pihole
+  wait: true
+  prune: false
