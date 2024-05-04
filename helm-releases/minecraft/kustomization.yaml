@@ -4,3 +4,4 @@ resources:
   - minecraft-namespace.yaml
   - minecraft-helmrepository.yaml
   - minecraft-helmrelease.yaml
+  - minecraft-ingress.yaml
