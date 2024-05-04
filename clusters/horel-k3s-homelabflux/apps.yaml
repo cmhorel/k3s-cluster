@@ -10,6 +10,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./manifests/capacitor
+  path: ./helm-releases/minecraft
   wait: true
   prune: false
