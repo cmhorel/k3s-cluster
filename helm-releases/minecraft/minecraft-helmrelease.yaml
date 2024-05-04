@@ -24,6 +24,7 @@ spec:
       # This can be one of "VANILLA", "FORGE", "SPIGOT", "BUKKIT", "PAPER", "FTBA", "SPONGEVANILLA", "CURSEFORGE"
 
       type: "VANILLA"
+      serviceType: LoadBalancer
     persistence:
       labels: {}
       annotations: {}
