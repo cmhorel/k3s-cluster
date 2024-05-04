@@ -106,14 +106,14 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./manifests
+  path: ./manifests/cluster-manifests
   wait: true
   prune: false
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: weave
+  name: capacitor
   namespace: flux-system
 spec:
   interval: 1h
@@ -122,6 +122,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./helm-releases/weave
+  path: ./manifests/capacitor
   wait: true
   prune: false
