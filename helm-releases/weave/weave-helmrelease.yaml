@@ -7,8 +7,8 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: gitops-server
-      version: v0.38.0
+      chart: weave-gitops
+      version: HEAD
       sourceRef:
         kind: HelmRepository
         name: weave

@@ -5,4 +5,5 @@ metadata:
   namespace: weave
 spec:
   interval: 24h
-  url: https://github.com/weaveworks/weave-gitops/blob/main/charts
+  type: oci
+  url: oci://ghcr.io/weaveworks/charts
