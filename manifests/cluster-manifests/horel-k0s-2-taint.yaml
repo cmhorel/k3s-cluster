@@ -5,7 +5,7 @@ metadata:
     kustomize.toolkit.fluxcd.io/prune: disabled
     kustomize.toolkit.fluxcd.io/ssa: merge
   labels:
-    horel.io.dronerunner: "true"
+    horel.io.dronerunner.arm: "true"
   name: horel-k0s-2
 spec:
   taints:
