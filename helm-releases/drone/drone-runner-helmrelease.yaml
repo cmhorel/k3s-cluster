@@ -18,6 +18,13 @@ spec:
     replicaCount: 2
     nodeSelector:nodeSelector:
       horel.io.dronerunner: "true"
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution: # <---- hard requirement not to schedule "nginx" pod if already one scheduled.
+          - topologyKey: k3s.io/hostname # <---- Anti affinity scope is host     
+            labelSelector:
+              matchLabels:
+                horel.io.dronerunner: "true"
     env:
       DRONE_SERVER_HOST: https://drone.horel.io
       DRONE_RPC_HOST: drone.drone.svc.cluster.local:8080
