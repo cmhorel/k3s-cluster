@@ -15,5 +15,7 @@ spec:
         namespace: drone
       interval: 12h
   values:
+    env:
+      DRONE_SERVER_HOST: http://drone.drone.svc.cluster.local
     extraSecretNamesForEnvFrom:
       - drone-runner
