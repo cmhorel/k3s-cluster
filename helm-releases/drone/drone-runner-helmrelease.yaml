@@ -24,15 +24,15 @@ spec:
     dind:
       resources:
         limits:
-          cpu: 500m
+          cpu: 1500m
           memory: 300Mi
         requests:
           cpu: 100m
           memory: 128Mi
-      # extraVolumeMounts:
-    #   - name: drone-runner-cache
-    #     mountPath: /var/lib/docker
-    #     subPath: docker
+      extraVolumeMounts:
+        - name: drone-runner-cache
+          mountPath: /var/lib/docker
+          subPath: docker
     gc:
       resources:
         limits:
@@ -48,8 +48,7 @@ spec:
       requests:
         cpu: 100m
         memory: 128Mi
-    # extraVolumes:
-
-#   - name: drone-runner-cache
-#     persistentVolumeClaim:
-#       claimName: drone-runner-cache
+    extraVolumes:
+      - name: drone-runner-cache
+        persistentVolumeClaim:
+          claimName: drone-runner-cache
