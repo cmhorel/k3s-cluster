@@ -37,6 +37,7 @@ spec:
       DRONE_SERVER_HOST: drone.horel.io
       DRONE_SERVER_PROTO: https
       DRONE_USER_FILTER: cmhorel
+      DRONE_DEBUG: true
     extraSecretNamesForEnvFrom:
       - drone
     resources:
