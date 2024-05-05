@@ -4,3 +4,4 @@ resources:
   - capacitor-namespace.yaml
   - capacitor-ocirepository.yaml
   - capacitor-manifests.yaml
+  - capacitor-resourcelimits.yaml
