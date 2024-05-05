@@ -137,6 +137,7 @@ vault kv put kv/imdumb/root/token token=<bad_idea>
 # bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2
 vault kv put kv/dex/chorel password=<bcrypt_hash> username=chorel
 vault kv put kv/dex/clients/argocd clientSecret=<longalphastring>
+vault kv put kv/drone/app-secrets DRONE_RPC_SECRET=xxx DRONE_GITHUB_CLIENT_ID=xxx DRONE_GITHUB_CLIENT_SECRET=xxx 
 vault secrets enable pki
 vault secrets tune -max-lease-ttl=87600h pki
 vault write -field=certificate pki/root/generate/internal \

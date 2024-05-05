@@ -141,3 +141,19 @@ spec:
   path: ./helm-releases/trivy
   wait: true
   prune: false
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: drone
+  namespace: flux-system
+spec:
+  interval: 1h
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./helm-releases/drone
+  wait: true
+  prune: false
