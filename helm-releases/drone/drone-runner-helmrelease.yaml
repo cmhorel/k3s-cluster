@@ -18,6 +18,7 @@ spec:
     env:
       DRONE_SERVER_HOST: https://drone.horel.io
       DRONE_RPC_HOST: drone.drone.svc.cluster.local:8080
+      DRONE_SECRET_PLUGIN_ENDPOINT: http://drone-secrets-drone-kubernetes-secrets.drone-runner.svc.cluster.local:3000
     extraSecretNamesForEnvFrom:
       - drone-runner
     dind:
