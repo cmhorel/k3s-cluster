@@ -5,3 +5,4 @@ resources:
   - external-secrets-helmrepository.yaml
   - external-secrets-helmrelease.yaml
   - cluster-secret-store.yaml
+  - external-secrets-regcred.yaml
