@@ -53,3 +53,9 @@ spec:
       - https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
       - https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
       - https://big.oisd.nl
+    image:
+      repository: "charleshorel/pihole-secure"
+      tag: "latest"
+      pullPolicy: IfNotPresent
+    imagePullSecrets:
+      - name: regcred
