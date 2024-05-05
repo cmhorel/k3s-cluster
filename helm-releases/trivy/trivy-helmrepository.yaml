@@ -1,8 +1,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: pihole
-  namespace: pihole
+  name: trivy
+  namespace: trivy
 spec:
   interval: 24h
-  url: https://mojo2600.github.io/pihole-kubernetes
+  url: https://aquasecurity.github.io/helm-charts/
