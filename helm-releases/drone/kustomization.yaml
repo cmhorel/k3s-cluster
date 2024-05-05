@@ -8,3 +8,4 @@ resources:
   - drone-runner-pvc.yaml
   - drone-server-helmrelease.yaml
   - drone-runner-helmrelease.yaml
+  - drone-k8s-secrets-helmrelease.yaml
