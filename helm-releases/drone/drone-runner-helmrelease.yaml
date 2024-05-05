@@ -19,8 +19,16 @@ spec:
     nodeSelector:nodeSelector:
       horel.io.dronerunner: "true"
     affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: horel.io.dronerunner
+                  operator: In
+                  values:
+                    - "true"
       podAntiAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution: # <---- hard requirement not to schedule "nginx" pod if already one scheduled.
+        requiredDuringSchedulingIgnoredDuringExecution: # <---- hard requirement not to schedule "drone-runner" pod if already one scheduled.
           - topologyKey: k3s.io/hostname # <---- Anti affinity scope is host     
             labelSelector:
               matchLabels:
