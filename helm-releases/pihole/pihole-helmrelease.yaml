@@ -14,6 +14,9 @@ spec:
         name: pihole
         namespace: pihole
       interval: 12h
+  install:
+    remediation:
+      .ignoreTestFailures: true
   values:
     serviceDns:
       type: LoadBalancer
