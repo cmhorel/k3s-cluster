@@ -11,6 +11,7 @@ spec:
     spec:
       containers:
         - name: capacitor
+          image: ghcr.io/gimlet-io/capacitor:v0.4.2
           resources:
             requests:
               cpu: 10m
