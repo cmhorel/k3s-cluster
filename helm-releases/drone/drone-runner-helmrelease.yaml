@@ -16,6 +16,7 @@ spec:
       interval: 12h
   values:
     env:
-      DRONE_SERVER_HOST: http://drone.drone.svc.cluster.local
+      DRONE_SERVER_HOST: https://drone.horel.io
+      DRONE_RPC_HOST: drone.drone.svc.cluster.local
     extraSecretNamesForEnvFrom:
       - drone-runner
