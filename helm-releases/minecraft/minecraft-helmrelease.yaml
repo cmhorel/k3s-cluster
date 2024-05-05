@@ -37,3 +37,10 @@ spec:
           - ReadWriteOnce
     nodeSelector:
       horel.io.minecraft: "true"
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 2000Mi
+      requests:
+        cpu: 120m
+        memory: 1500Mi
