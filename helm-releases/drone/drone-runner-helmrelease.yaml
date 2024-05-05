@@ -19,4 +19,26 @@ spec:
       DRONE_SERVER_HOST: https://drone.horel.io
       DRONE_RPC_HOST: drone.drone.svc.cluster.local:8080
     extraSecretNamesForEnvFrom:
-      - drone-runner
+    dind:
+      resources:
+        limits:
+          cpu: 100m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+    gc:
+      resources:
+        limits:
+          cpu: 100m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
