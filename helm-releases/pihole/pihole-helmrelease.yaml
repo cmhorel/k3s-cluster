@@ -16,7 +16,7 @@ spec:
       interval: 12h
   install:
     remediation:
-      .ignoreTestFailures: true
+      ignoreTestFailures: true
   values:
     serviceDns:
       type: LoadBalancer
