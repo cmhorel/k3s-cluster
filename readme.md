@@ -197,3 +197,14 @@ echo 'mirrors:
     endpoint:
       - "https://horel-k0s-3/v2"' > /etc/rancher/k3s/registries.yaml
 ```
+
+
+## Drone sucks
+```
+portforward drone server port 80
+DRONE_SERVER=http://localhost:80  
+DRONE_TOKEN=<token from profile page in drone>
+drone registry add --repository charleshorel/pihole-secure --hostname docker.io  --username xxx  --password xxxx
+```
+Just do through the gui, it can be done via the cli though.
+Kubernetes secrets extension seems to be a big disappointment. I can't get it to talk to the endpoint after properly configuring it. Docs are scattered.
