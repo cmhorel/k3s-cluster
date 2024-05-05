@@ -6,3 +6,5 @@ metadata:
 spec:
   storageClassName: "local-path" # Empty string must be explicitly set otherwise default StorageClass will be set
   volumeName: drone-runner-cache
+  accessModes:
+    - ReadWriteOnce
