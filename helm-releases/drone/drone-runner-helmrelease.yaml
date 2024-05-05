@@ -42,8 +42,8 @@ spec:
     dind:
       resources:
         limits:
-          cpu: 800m
-          memory: 300Mi
+          cpu: 400m
+          memory: 200Mi
         requests:
           cpu: 100m
           memory: 128Mi
