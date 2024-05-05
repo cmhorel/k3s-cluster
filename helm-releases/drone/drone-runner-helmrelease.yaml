@@ -18,6 +18,10 @@ spec:
     replicaCount: 2
     nodeSelector:nodeSelector:
       horel.io.dronerunner: "true"
+    tolerations:
+      - effect: "NoSchedule"
+        key: "node-role.kubernetes.io/master"
+        operator: "Exists"
     affinity:
       podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
