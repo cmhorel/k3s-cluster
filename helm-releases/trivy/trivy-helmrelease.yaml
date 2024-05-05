@@ -21,10 +21,11 @@ spec:
         memory: 128Mi
       limits:
         cpu: 800m
-        memory: 400Mi
+        memory: 600Mi
     service:
       name: trivy
       #type: LoadBalancer
+
       port: 4954
       clusterIP: ""
     serviceMonitor:
@@ -34,6 +35,5 @@ spec:
     nodeCollector:
       tolerations:
         - effect: "NoSchedule"
-          key:  "node-role.kubernetes.io/master" 
+          key: "node-role.kubernetes.io/master"
           operator: "Exists"
-
