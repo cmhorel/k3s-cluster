@@ -70,3 +70,76 @@ spec:
       - name: drone-runner-cache
         persistentVolumeClaim:
           claimName: drone-runner-cache
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: drone-runner-arm
+  namespace: drone-runner
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: drone-runner-docker
+      version: "0.6.2"
+      sourceRef:
+        kind: HelmRepository
+        name: drone
+        namespace: drone
+      interval: 12h
+  values:
+    replicaCount: 1
+    nodeSelector:nodeSelector:
+      horel.io.dronerunner.arm: "true"
+    tolerations:
+      - effect: "NoSchedule"
+        key: "node-role.kubernetes.io/master"
+        operator: "Exists"
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/instance
+                  operator: In
+                  values:
+                    - drone-runner
+            topologyKey: kubernetes.io/hostname
+    env:
+      DRONE_SERVER_HOST: https://drone.horel.io
+      DRONE_RPC_HOST: drone.drone.svc.cluster.local:8080
+      DRONE_SECRET_PLUGIN_ENDPOINT: http://drone-secrets-drone-kubernetes-secrets.drone-runner.svc.cluster.local:3000
+      DRONE_DEBUG: true
+    extraSecretNamesForEnvFrom:
+      - drone-runner
+    dind:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 100Mi
+        requests:
+          cpu: 100m
+          memory: 50Mi
+      extraVolumeMounts:
+        - name: drone-runner-cache
+          mountPath: /var/lib/docker
+          subPath: docker
+    gc:
+      resources:
+        limits:
+          cpu: 100m
+          memory: 80Mi
+        requests:
+          cpu: 100m
+          memory: 50Mi
+    resources:
+      limits:
+        cpu: 100m
+        memory: 80Mi
+      requests:
+        cpu: 100m
+        memory: 50Mi
+    extraVolumes:
+      - name: drone-runner-cache
+        persistentVolumeClaim:
+          claimName: drone-runner-cache-arm

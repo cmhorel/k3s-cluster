@@ -10,3 +10,16 @@ spec:
   resources:
     requests:
       storage: 10Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: drone-runner-cache-arm
+  namespace: drone-runner
+spec:
+  storageClassName: "local-path" # Empty string must be explicitly set otherwise default StorageClass will be set
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
