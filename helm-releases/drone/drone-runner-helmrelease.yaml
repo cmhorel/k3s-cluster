@@ -19,20 +19,15 @@ spec:
     nodeSelector:nodeSelector:
       horel.io.dronerunner: "true"
     affinity:
-      nodeAffinity:
+      podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: horel.io.dronerunner
+          - labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/instance
                   operator: In
                   values:
-                    - "true"
-      podAntiAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution: # <---- hard requirement not to schedule "drone-runner" pod if already one scheduled.
-          - topologyKey: k3s.io/hostname # <---- Anti affinity scope is host     
-            labelSelector:
-              matchLabels:
-                horel.io.dronerunner: "true"
+                    - drone-runner
+            topologyKey: kubernetes.io/hostname
     env:
       DRONE_SERVER_HOST: https://drone.horel.io
       DRONE_RPC_HOST: drone.drone.svc.cluster.local:8080
