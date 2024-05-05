@@ -15,6 +15,13 @@ spec:
         namespace: filebrowser
       interval: 12h
   values:
+    resources:
+      limits:
+        cpu: 200m
+        memory: 100Mi
+      requests:
+        cpu: 50m
+        memory: 30Mi
     ingress:
       enabled: true
       className: "traefik"
