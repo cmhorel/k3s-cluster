@@ -39,3 +39,10 @@ spec:
       DRONE_USER_FILTER: cmhorel
     extraSecretNamesForEnvFrom:
       - drone
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
