@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - drone-namespace.yaml
   - drone-helmrepository.yaml
-  - drone-server-helmrelease.yaml
   - drone-secrets.yaml
   - drone-middleware.yaml
+  - drone-server-helmrelease.yaml
+  - drone-runner-helmrelease.yaml
