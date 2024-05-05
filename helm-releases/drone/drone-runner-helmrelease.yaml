@@ -115,8 +115,8 @@ spec:
     dind:
       resources:
         limits:
-          cpu: 200m
-          memory: 100Mi
+          cpu: 800Mi
+          memory: 400Mi
         requests:
           cpu: 100m
           memory: 50Mi
@@ -127,11 +127,11 @@ spec:
     gc:
       resources:
         limits:
-          cpu: 100m
-          memory: 80Mi
+          cpu: 150m
+          memory: 100Mi
         requests:
-          cpu: 100m
-          memory: 50Mi
+          cpu: 150m
+          memory: 100Mi
     resources:
       limits:
         cpu: 100m
