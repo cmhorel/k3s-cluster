@@ -42,7 +42,7 @@ spec:
     dind:
       resources:
         limits:
-          cpu: 800Mi
+          cpu: 800m
           memory: 400Mi
         requests:
           cpu: 100m
@@ -115,7 +115,7 @@ spec:
     dind:
       resources:
         limits:
-          cpu: 800Mi
+          cpu: 800m
           memory: 400Mi
         requests:
           cpu: 100m
@@ -124,7 +124,6 @@ spec:
     #   - name: drone-runner-cache
     #     mountPath: /var/lib/docker
     #     subPath: docker
-
     gc:
       resources:
         limits:
