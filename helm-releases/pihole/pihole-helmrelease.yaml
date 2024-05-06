@@ -28,7 +28,7 @@ spec:
       type: LoadBalancer
     serviceDhcp:
       type: LoadBalancer
-    replicaCount: 2
+    replicaCount: 1
     serviceWeb:
       annotations:
         traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
