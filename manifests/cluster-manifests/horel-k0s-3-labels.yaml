@@ -6,4 +6,5 @@ metadata:
     kustomize.toolkit.fluxcd.io/ssa: merge
   labels:
     horel.io.dronerunner.arm: "true"
+    horel.io.pihole: "true"
   name: horel-k0s-3
