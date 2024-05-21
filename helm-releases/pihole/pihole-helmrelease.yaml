@@ -63,7 +63,7 @@ spec:
       - https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
       - https://big.oisd.nl
     image:
-      repository: "charleshorel/pihole-secure"
+      repository: "charleshorel/images"
       tag: "pihole-arm64"
       pullPolicy: Always
     imagePullSecrets:
