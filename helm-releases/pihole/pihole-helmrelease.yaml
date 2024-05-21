@@ -64,7 +64,7 @@ spec:
       - https://big.oisd.nl
     image:
       repository: "charleshorel/pihole-secure"
-      tag: "latest"
+      tag: "pihole-arm64"
       pullPolicy: Always
     imagePullSecrets:
       - name: regcred
