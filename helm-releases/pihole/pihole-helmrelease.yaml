@@ -65,6 +65,6 @@ spec:
     image:
       repository: "charleshorel/images"
       tag: "pihole-arm64"
-      pullPolicy: Always
+      pullPolicy: IfNotPresent
     imagePullSecrets:
       - name: regcred
