@@ -5,6 +5,7 @@ metadata:
   namespace: pihole
 spec:
   interval: 30m
+  timeout: 30m
   chart:
     spec:
       chart: pihole
@@ -17,6 +18,10 @@ spec:
   install:
     remediation:
       ignoreTestFailures: true
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
   values:
     nodeSelector:
       horel.io.pihole: "true"
