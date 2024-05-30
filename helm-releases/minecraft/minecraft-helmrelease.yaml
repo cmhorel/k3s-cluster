@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: minecraft
-      version: "4.17.0"
+      version: LATEST
       sourceRef:
         kind: HelmRepository
         name: minecraft
